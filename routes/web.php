@@ -14,3 +14,30 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['middleware' => 'log'], function () {
+
+    Route::namespace('Backend\Admin')->group(function () {
+
+        Route::get('admin/login/index', 'LoginController@index');
+        Route::post('admin/login/index', 'LoginController@login');
+
+        Route::group(['middleware' => 'islogin'], function () {
+            Route::get('admin/index/index', 'IndexController@index');
+
+        });
+    });
+
+    Route::group(['middleware' => 'islogin'], function () {
+
+        Route::namespace('Backend\Menu')->group(function () {
+
+            Route::resource('menu/menu/index', 'MenuController');
+
+        });
+
+    });
+
+
+});
