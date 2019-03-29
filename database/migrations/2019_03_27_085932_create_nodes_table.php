@@ -22,7 +22,7 @@ class CreateNodesTable extends Migration
             $table->integer('sort')->comment('排序');
             $table->integer('create_time');
             $table->integer('update_time');
-            $table->integer('delete_time')->nullable();
+            $table->integer('delete_time');
         });
         \Illuminate\Support\Facades\DB::statement("ALTER TABLE `nodes` comment '节点表'");
     }

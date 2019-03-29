@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->integer('create_time');
             $table->integer('update_time')->nullable();
-            $table->integer('delete_time')->nullable();
+            $table->softDeletes('delete_time');
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\menu;
 
+use App\Models\Backend\menu\Node;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,9 +13,15 @@ class NodeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $data = $request->all();
+
+        $node = Node::getData(2,$data);
+
+        return view('backend.menu.node.index',['node'=>$node]);
+
     }
 
     /**
@@ -22,9 +29,12 @@ class NodeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id=0)
     {
         //
+
+        return view('backend.menu.node.add',['id'=>$id]);
+
     }
 
     /**
@@ -36,6 +46,10 @@ class NodeController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
+
     }
 
     /**

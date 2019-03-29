@@ -34,6 +34,9 @@ class MenuController extends Controller
     public function create()
     {
         //
+
+        return view('backend.menu.menu.add');
+
     }
 
     /**
@@ -45,6 +48,28 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         //
+
+        $data = $request->all();
+
+        $validateData = $this->validate($request,[
+            'name'=>'required',
+        ]);
+
+        if ($validateData){
+            return json_encode(['code'=>0,'data'=>$validateData,'message'=>$validateData]);
+        }
+
+        $data['create_time'] = time();
+        $data['update_time'] = time();
+
+        $menuModel = new Menu();
+        $res = $menuModel->insert($data);
+        if ($res){
+            return json_encode(['code'=>1,'data'=>'','message'=>'添加成功']);
+        }else{
+            return json_encode(['code'=>0,'data'=>'','message'=>'添加失败']);
+        }
+
     }
 
     /**
@@ -56,6 +81,11 @@ class MenuController extends Controller
     public function show($id)
     {
         //
+
+        $menu = Menu::find($id);
+
+        return view('backend.menu.menu.edit',['menu'=>$menu]);
+
     }
 
     /**
@@ -67,6 +97,7 @@ class MenuController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -79,6 +110,32 @@ class MenuController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $data = $request->all();
+
+        $validateData = $this->validate($request,[
+            'name'=>'required',
+        ]);
+
+        if ($validateData){
+            return json_encode(['code'=>0,'data'=>$validateData,'message'=>$validateData]);
+        }
+
+        $data['update_time'] = time();
+
+        $menu = Menu::find($id);
+
+        $menu->name=$data['name'];
+        $menu->state=$data['state'];
+        $menu->update_time = time();
+        $res = $menu->save();
+        if ($res){
+            return json_encode(['code'=>1,'data'=>'','message'=>'保存成功']);
+        }else{
+            return json_encode(['code'=>0,'data'=>'','message'=>'保存失败']);
+        }
+
+
     }
 
     /**
@@ -90,5 +147,17 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //
+
+        $menu = Menu::find($id);
+
+        $res = $menu->delete();
+
+        if ($res){
+            return json_encode(['code'=>1,'data'=>'','message'=>'删除成功']);
+        }else{
+            return json_encode(['code'=>0,'data'=>'','message'=>'删除失败']);
+        }
+
+
     }
 }

@@ -17,7 +17,8 @@ class User extends Model
 
     const UPDATED_AT = 'update_time';
 
-    const DELETED_AT = 'update_time';
+    const DELETED_AT = 'delete_time';
+
 
 
 

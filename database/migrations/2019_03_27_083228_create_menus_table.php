@@ -19,7 +19,7 @@ class CreateMenusTable extends Migration
             $table->integer('state')->default(1)->comment('状态  1:启用；0：禁用');
             $table->integer('create_time');
             $table->integer('update_time');
-            $table->integer('delete_time')->nullable();
+            $table->integer('delete_time');
         });
         \Illuminate\Support\Facades\DB::statement("ALTER TABLE `menus` comment '角色表'");
 

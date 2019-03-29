@@ -35,6 +35,8 @@ Route::group(['middleware' => 'log'], function () {
 
             Route::resource('menu/menu/index', 'MenuController');
 
+            Route::resource('menu/node/index', 'NodeController');
+
         });
 
     });

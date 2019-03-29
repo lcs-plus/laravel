@@ -19,11 +19,11 @@ class CreateLogsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->string('url');
             $table->string('table_name')->nullable();
-            $table->integer('table_id')->nullable();
+            $table->string('table_id')->nullable();
             $table->string('remark');
             $table->integer('create_time');
             $table->integer('update_time');
-            $table->integer('delete_time')->nullable();
+            $table->softDeletes('delete_time');
         });
     }
 

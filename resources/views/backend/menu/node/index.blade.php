@@ -23,7 +23,7 @@
                     <div class="ibox-content">
                         <div class="ibox-content">
 
-                                <a href="{{ URL::asset('menu/menu/index/create') }}" class="btn btn-outline btn-primary">添加</>
+                                <a href="{{ URL::asset('menu/node/index/create') }}" class="btn btn-outline btn-primary">添加</>
                                 <a type="button" class="btn btn-outline btn-success">成功</a>
                                 <a type="button" class="btn btn-outline btn-info">信息</a>
                                 <a type="button" class="btn btn-outline btn-warning">警告</a>
@@ -43,7 +43,7 @@
                             </thead>
                             <tbody>
                             <tr class="gradeX">
-                                @foreach($menu as $v)
+                                @foreach($node as $v)
                                     <td><input type="checkbox"></td>
                                     <td>{{ $v->id }}</td>
                                     <td>{{ $v->name }}</td>
@@ -51,7 +51,7 @@
                                     <td>{{ $v->update_time}}</td>
                                     <td>{{ $v->state }}</td>
                                     <td>
-                                        <a type="button" href="{{ URL::asset('menu/menu/index/'.$v->id) }}" class="btn btn-outline btn-success">编辑</a>
+                                        <a type="button" href="{{ URL::asset('menu/node/index/'.$v->id) }}" class="btn btn-outline btn-success">编辑</a>
                                         <a type="button" data-id="{{ $v->id }}" class="btn btn-outline btn-info remove_this">删除</a>
                                     </td>
                                 @endforeach
@@ -61,15 +61,15 @@
                             <tr>
                                 <th><input type="checkbox"></th>
                                 <th>ID</th>
-                                <th>角色名称</th>
-                                <th>创建时间</th>
+                                <th>节点名称</th>
+                                <th>链接</th>
                                 <th>修改时间</th>
                                 <th>状态</th>
                                 <th>操作</th>
                             </tr>
                             </tfoot>
                         </table>
-                        {{ $menu->links() }}
+                        {{ $node->links() }}
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
 
             var id = $(this).attr('data-id');
             $.ajax({
-                url:"{{ URL::asset('menu/menu/index') }}" + '/' + id,
+                url:"{{ URL::asset('menu/node/index') }}" + '/' + id,
                 type:'post',
                 dataType:'json',
                 headers: {
