@@ -23,7 +23,7 @@
                     <div class="ibox-content">
                         <div class="ibox-content">
 
-                                <a href="{{ URL::asset('menu/node/index/create') }}" class="btn btn-outline btn-primary">添加</>
+                                <a href="{{ URL::asset('menu/node/index/create') }}" class="btn btn-outline btn-primary">添加</a>
                                 <a type="button" class="btn btn-outline btn-success">成功</a>
                                 <a type="button" class="btn btn-outline btn-info">信息</a>
                                 <a type="button" class="btn btn-outline btn-warning">警告</a>
