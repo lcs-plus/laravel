@@ -42,8 +42,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="gradeX">
+
                                 @foreach($menu as $v)
+                                    <tr class="gradeX">
                                     <td><input type="checkbox"></td>
                                     <td>{{ $v->id }}</td>
                                     <td>{{ $v->name }}</td>
@@ -54,8 +55,9 @@
                                         <a type="button" href="{{ URL::asset('menu/menu/index/'.$v->id) }}" class="btn btn-outline btn-success">编辑</a>
                                         <a type="button" data-id="{{ $v->id }}" class="btn btn-outline btn-info remove_this">删除</a>
                                     </td>
+                                    </tr>
                                 @endforeach
-                            </tr>
+
                             </tbody>
                             <tfoot>
                             <tr>

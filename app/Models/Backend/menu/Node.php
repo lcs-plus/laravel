@@ -17,10 +17,14 @@ class Node extends Model
 
     const UPDATED_AT = 'update_time';
 
-    const DELETED_AT = 'update_time';
+    const DELETED_AT = 'delete_time';
 
 
     public static function getData($page = 30,$where){
+
+        if (empty($where['page'])){
+            unset($where['page']);
+        }
 
         $data = self::where($where)->paginate($page);
 

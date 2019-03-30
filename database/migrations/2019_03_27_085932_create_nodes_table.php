@@ -18,11 +18,12 @@ class CreateNodesTable extends Migration
             $table->string('name')->comment('节点名称');
             $table->integer('type')->default(0)->comment('上一级节点');
             $table->string('url')->comment('链接');
-            $table->string('icon')->comment('图标');
+            $table->string('icon')->comment('图标')->nullable();
             $table->integer('sort')->comment('排序');
+            $table->integer('state')->comment('状态');
             $table->integer('create_time');
             $table->integer('update_time');
-            $table->integer('delete_time');
+            $table->integer('delete_time')->nullable();
         });
         \Illuminate\Support\Facades\DB::statement("ALTER TABLE `nodes` comment '节点表'");
     }

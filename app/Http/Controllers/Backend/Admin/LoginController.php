@@ -33,14 +33,14 @@ class LoginController extends Controller
 
         if (empty($user)) {
             \App\Models\Backend\Log::addTable($request,'登录失败','users',$data['email']);
-            return ['code' => 0, 'data' => '', 'message' => '邮箱或登录密码错误1'];
+            return ['code' => 0, 'data' => '', 'message' => '邮箱或登录密码错误'];
         }
 
         $data['password'] = md5(md5($data['password']));
 
         if ($data['password'] != $user['password']) {
             \App\Models\Backend\Log::addTable($request,'登录失败','users',$data['email']);
-            return ['code' => 0, 'data' => '', 'message' => '邮箱或登录密码错误2'];
+            return ['code' => 0, 'data' => '', 'message' => '邮箱或登录密码错误'];
         }
 
         \App\Models\Backend\Log::addTable($request,'登录成功','users',$data['email']);

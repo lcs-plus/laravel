@@ -65,10 +65,20 @@
 
 
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">图标</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="icon">
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">状态：</label>
                         <div class="col-sm-9">
                             <label class="radio-inline">
-                                <input type="radio" checked="" value="0" id="optionsRadios1" name="state">禁用</label>
+                                <input type="radio" checked="checked" value="0" id="optionsRadios1" name="state">禁用</label>
                             <label class="radio-inline">
                                 <input type="radio" value="1" id="optionsRadios2" name="state">启用</label>
                         </div>
@@ -124,6 +134,9 @@
                             window.location.href = "{{ URL::asset('menu/node/index') }}";
                         }
 
+                    },
+                    error:function (date) {
+                        console.log(date.responseJSON)
                     }
                 });
             })

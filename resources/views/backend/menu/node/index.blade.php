@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>角色列表</h5>
+                        <h5>节点列表</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -34,7 +34,8 @@
                             <tr>
                                 <th><input type="checkbox"></th>
                                 <th>ID</th>
-                                <th>角色名称</th>
+                                <th>节点名称</th>
+                                <th>节点url</th>
                                 <th>创建时间</th>
                                 <th>修改时间</th>
                                 <th>状态</th>
@@ -42,11 +43,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="gradeX">
+
                                 @foreach($node as $v)
+                                    <tr class="gradeX">
                                     <td><input type="checkbox"></td>
                                     <td>{{ $v->id }}</td>
                                     <td>{{ $v->name }}</td>
+                                    <td>{{ $v->url }}</td>
                                     <td>{{ $v->create_time }}</td>
                                     <td>{{ $v->update_time}}</td>
                                     <td>{{ $v->state }}</td>
@@ -54,15 +57,17 @@
                                         <a type="button" href="{{ URL::asset('menu/node/index/'.$v->id) }}" class="btn btn-outline btn-success">编辑</a>
                                         <a type="button" data-id="{{ $v->id }}" class="btn btn-outline btn-info remove_this">删除</a>
                                     </td>
-                                @endforeach
                             </tr>
+                                @endforeach
+
                             </tbody>
                             <tfoot>
                             <tr>
                                 <th><input type="checkbox"></th>
                                 <th>ID</th>
                                 <th>节点名称</th>
-                                <th>链接</th>
+                                <th>节点url</th>
+                                <th>创建时间</th>
                                 <th>修改时间</th>
                                 <th>状态</th>
                                 <th>操作</th>

@@ -22,6 +22,11 @@ class Menu extends Model
     public function getDateAll($page = 20, $where)
     {
 
+
+        if (!empty($where['page'])){
+            unset($where['page']);
+        }
+
         $menu = Menu::where($where)->paginate($page);
 
         return $menu;

@@ -20,7 +20,7 @@ class MenuController extends Controller
 
         $menuModel = new Menu();
 
-        $menu = $menuModel->getDateAll(1,$date);
+        $menu = $menuModel->getDateAll(10,$date);
 
         return view('backend.menu.menu.index', ['menu' => $menu]);
 
