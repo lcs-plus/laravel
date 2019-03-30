@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->integer('menus_id')->commit('所属角色');
             $table->integer('create_time');
             $table->integer('update_time')->nullable();
             $table->softDeletes('delete_time');

@@ -20,7 +20,22 @@ class User extends Model
     const DELETED_AT = 'delete_time';
 
 
+    public static function getDateAll($page = 20, $where)
+    {
 
+
+        if (!empty($where['page'])){
+            unset($where['page']);
+        }
+
+        $menu = self::where($where)
+            ->join('menus','users.menus_id','=','menus.id')
+            ->select(['users.*','menus.name as menusName'])
+            ->paginate($page);
+
+        return $menu;
+
+    }
 
 
 }

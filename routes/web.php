@@ -26,6 +26,8 @@ Route::group(['middleware' => 'log'], function () {
         Route::group(['middleware' => 'islogin'], function () {
             Route::get('admin/index/index', 'IndexController@index');
 
+            Route::resource('admin/user/index', 'UserController');
+
         });
     });
 
@@ -36,6 +38,8 @@ Route::group(['middleware' => 'log'], function () {
             Route::resource('menu/menu/index', 'MenuController');
 
             Route::resource('menu/node/index', 'NodeController');
+
+
 
         });
 

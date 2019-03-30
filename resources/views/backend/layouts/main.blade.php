@@ -67,7 +67,7 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="index_v1.html" data-index="0">管理员列表</a>
+                            <a href="{{ URL::asset('admin/user/index') }}" data-index="0">管理员列表</a>
                         </li>
                         <li>
                             <a href="{{ URL::asset('menu/menu/index') }}">角色列表</a>

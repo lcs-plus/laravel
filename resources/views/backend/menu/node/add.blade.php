@@ -73,12 +73,24 @@
                     </div>
                     <div class="hr-line-dashed"></div>
 
+                    <div class="checkbox form-group">
+                        <label class="col-sm-2 control-label">所属角色：</label>
+                        <div class="col-sm-9">
+                            @foreach($menu as $k)
+                            <label class="checkbox" for="closeButton{{$k->id}}">
+                                <input id="closeButton{{$k->id}}" name="menu[]" type="checkbox" value="{{ $k->id }}" class="input-mini" checked="">{{ $k->name }}
+                            </label>
+                                @endforeach
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">状态：</label>
                         <div class="col-sm-9">
                             <label class="radio-inline">
-                                <input type="radio" checked="checked" value="0" id="optionsRadios1" name="state">禁用</label>
+                                <input type="radio" checked="checked" value="0" id="optionsRadios1"
+                                       name="state">禁用</label>
                             <label class="radio-inline">
                                 <input type="radio" value="1" id="optionsRadios2" name="state">启用</label>
                         </div>
@@ -121,21 +133,21 @@
             $("#add_button").click(function () {
 
                 $.ajax({
-                    url:"{{ URL::asset('menu/node/index') }}",
-                    type:'post',
-                    dataType:'json',
+                    url: "{{ URL::asset('menu/node/index') }}",
+                    type: 'post',
+                    dataType: 'json',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                     },
-                    data:$("#menu_form").serializeArray(),
-                    success:function (data) {
+                    data: $("#menu_form").serializeArray(),
+                    success: function (data) {
                         layer.msg(data.message);
-                        if (data.code == 1){
+                        if (data.code == 1) {
                             window.location.href = "{{ URL::asset('menu/node/index') }}";
                         }
 
                     },
-                    error:function (date) {
+                    error: function (date) {
                         console.log(date.responseJSON)
                     }
                 });
