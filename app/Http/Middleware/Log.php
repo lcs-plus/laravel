@@ -19,7 +19,7 @@ class Log extends BaseEncrypter
 
 
         dump($request->server());
-        dump($request->all());
+        dump($request->route());
 //        $url = $request->server('HTTP_REFERER');
 //        $host = $request->server('HTTP_HOST');
 //        dump($url);
@@ -27,7 +27,7 @@ class Log extends BaseEncrypter
 //        $url = str_replace($host,'',$url);
 //
 //        dump($url);
-
+exit();
         \App\Models\Backend\Log::addTable($request);
 
 
