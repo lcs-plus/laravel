@@ -78,6 +78,21 @@
                     </ul>
 
                 </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">商品管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ URL::asset('shop/index/index') }}" data-index="0">商品列表</a>
+                        </li>
+                    </ul>
+
+                </li>
+
                 <li>
                     <a class="J_menuItem" href="layouts.html"><i class="fa fa-columns"></i> <span
                                 class="nav-label">布局</span></a>

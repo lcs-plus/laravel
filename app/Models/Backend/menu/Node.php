@@ -33,4 +33,21 @@ class Node extends Model
     }
 
 
+    public static function getDataByUrl($url,$user_id){
+
+        $list =self::where(['nodes.url'=>$url,'user_menus.menus_id'=>$user_id])
+            ->join('user_menus','user_menus.node_id','=','nodes.id')
+            ->first();
+
+
+        if (empty($list)){
+            return false;
+        }
+
+        return true;
+
+
+    }
+
+
 }

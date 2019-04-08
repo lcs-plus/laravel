@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => 'log'], function () {
+    //记录日志
 
     Route::namespace('Backend\Admin')->group(function () {
+        //命名空间定位于Backend\Admin下面
 
         Route::get('admin/login/index', 'LoginController@index');
         Route::post('admin/login/index', 'LoginController@login');
@@ -32,6 +34,7 @@ Route::group(['middleware' => 'log'], function () {
     });
 
     Route::group(['middleware' => 'islogin'], function () {
+        //判断是否登录
 
         Route::namespace('Backend\Menu')->group(function () {
 
@@ -39,7 +42,11 @@ Route::group(['middleware' => 'log'], function () {
 
             Route::resource('menu/node/index', 'NodeController');
 
+        });
 
+        Route::namespace('Backend\Shop')->group(function (){
+
+            Route::resource('shop/index/index','IndexController');
 
         });
 

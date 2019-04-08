@@ -8,6 +8,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Backend\menu\Node;
 use Closure;
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 
@@ -17,17 +18,16 @@ class Log extends BaseEncrypter
     public function handle($request, Closure $next)
     {
 
+//       $user_id = $request->session()->get('userinfo')->menus_id;
+////
+////        $url = $request->route()->getAction();
+////
+////        $a = Node::getDataByUrl($url['controller'],$user_id);
+////
+////       if (!$a){
+////           return false;
+////       }
 
-        dump($request->server());
-        dump($request->route());
-//        $url = $request->server('HTTP_REFERER');
-//        $host = $request->server('HTTP_HOST');
-//        dump($url);
-//        dump($host);
-//        $url = str_replace($host,'',$url);
-//
-//        dump($url);
-exit();
         \App\Models\Backend\Log::addTable($request);
 
 

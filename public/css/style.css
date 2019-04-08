@@ -3516,11 +3516,12 @@ video {
 
 .wrapper {
     padding: 0 20px;
+    background-color: white;
 }
 
-.wrapper-content {
-    padding: 20px;
-}
+/*.wrapper-content {*/
+    /*padding: 20px;*/
+/*}*/
 
 #page-wrapper {
     padding: 0 15px;
@@ -3721,8 +3722,8 @@ nav.page-tabs .page-tabs-content {
 }
 
 #content-main {
-    height: calc(100% - 140px);
-    overflow: hidden;
+    /*height: calc(100% - 140px);*/
+    /*overflow: hidden;*/
 }
 
 .fixed-nav #content-main {

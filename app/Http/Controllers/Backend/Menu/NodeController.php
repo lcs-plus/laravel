@@ -64,7 +64,6 @@ class NodeController extends Controller
 
         if ($res) {
 
-
             $user_menusModel = new UserMenu();
             $user_menus = array();
             foreach ($menus as $k) {
@@ -149,8 +148,6 @@ class NodeController extends Controller
             foreach ($menusUser as $k) {
                 $ids[] = $k->menus_id;
             }
-
-
 
             $new_id = array_diff($menus, $ids);
             $old_id = array_diff($ids, $menus);
