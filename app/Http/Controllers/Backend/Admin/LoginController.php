@@ -13,12 +13,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Backend\User;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
 
     public function index()
     {
+//        14e1b600b1fd579f47433b88e8d85291
 
         return view('backend.admin.login.index');
 
@@ -52,3 +54,4 @@ class LoginController extends Controller
     }
 
 }
+

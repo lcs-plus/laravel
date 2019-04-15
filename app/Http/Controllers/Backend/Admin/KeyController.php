@@ -14,7 +14,11 @@ class KeyController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(){
+    public function index(Request $request){
+        //
+        $data = Key::getDataAll(20,$request->all());
+
+        return view('backend.admin.key.index',['data'=>$data]);
 
     }
 

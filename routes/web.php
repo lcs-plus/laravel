@@ -30,6 +30,8 @@ Route::group(['middleware' => 'log'], function () {
 
             Route::resource('admin/user/index', 'UserController');
 
+            Route::resource('admin/key/index','KeyController');
+
         });
     });
 

@@ -16,6 +16,8 @@ class CreateKeysTable extends Migration
         Schema::create('keys', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');
+            $table->string('appid');
+            $table->string('appsecret');
             $table->text('public_key');
             $table->text('private_key');
             $table->integer('create_time');

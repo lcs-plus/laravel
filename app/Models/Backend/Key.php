@@ -19,7 +19,7 @@ class Key extends Model
     const DELETED_AT = 'delete_time';
 
 
-    public function getDataAll($page=30,$where){
+    public static function getDataAll($page=30,$where){
 
         if (empty($where['page'])){
             unset($where['page']);
